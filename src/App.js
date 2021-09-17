@@ -1,11 +1,27 @@
 import './App.css';
+import { handleGetInitialData } from './actions/shared';
+import React from 'react';
+import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      WOULD YOU RATHER
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(handleGetInitialData());
+  }
+
+  render() {
+    return (
+      <div className="App">
+        WOULD YOU RATHER
+      </div>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+      authedUser
+  };
+};
+
+export default connect(mapStateToProps)(App);
