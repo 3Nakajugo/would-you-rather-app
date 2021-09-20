@@ -2,6 +2,7 @@ import './App.css';
 import { handleGetInitialData } from './actions/shared';
 import React from 'react';
 import { connect } from 'react-redux'
+import Login from './components/Login';
 
 class App extends React.Component {
 
@@ -12,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        WOULD YOU RATHER
+        <Login />
       </div>
     );
   }
@@ -20,7 +21,7 @@ class App extends React.Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-      authedUser
+    authedUser
   };
 };
 
