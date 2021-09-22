@@ -1,11 +1,11 @@
 import { GET_AUTHED_USER } from '../actions/authedUser';
 
 const initialState = {
-  authedUser: null,
+  authedUser: '',
   isLoggedIn: false
 };
 
-export default function authedUserReducer(state = initialState, action) {
+export default function authedUser(state = initialState, action) {
   switch (action.type) {
     case GET_AUTHED_USER:
       return {

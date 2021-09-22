@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAuthedUser } from '../actions/authedUser';
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 export class Login extends Component {
 
-  state = { user: undefined };
+  state = { user: '' };
 
 
   handleChange = (e) => {
@@ -14,21 +14,20 @@ export class Login extends Component {
     this.setState({ user: value });
   }
 
-  handleSubmit = () => {
-    if (this.state.user === undefined) {
-      console.log('failed to login ')
+  handleSubmit = (e) => {
+    const { dispatch, history } = this.props
+    e.preventDefault();
+    if (this.state.user === '') {
+      alert('failed to login ')
     } else {
-      this.props.dispatch(getAuthedUser(this.state.user));
+      dispatch(getAuthedUser(this.state.user));
+      console.log(history.push, '???????????????????????????');
+      history.push("/home");
     }
 
   }
   render() {
-    const { users, authedUser } = this.props
-    if (authedUser !== null) {
-      return (
-        <Redirect to={'/'} />
-      )
-    }
+    const { users } = this.props
     return (
 
       <div className="login-container card Regular shadow" >
@@ -46,22 +45,19 @@ export class Login extends Component {
               </option>
             ))}
           </select>
-          <button onClick={this.handleSubmit} type="submit" className="btn" style={{backgroundColor:"#09b1a8", color:"#ffffff", width:'100%', marginBottom: '15px', marginTop: '20px'}}>Sign In</button>
+          <button onClick={this.handleSubmit} type="submit" className="btn" style={{ backgroundColor: "#09b1a8", color: "#ffffff", width: '100%', marginBottom: '15px', marginTop: '20px' }}>Sign In</button>
         </div>
       </div>
     )
   }
 }
 
-function mapStateToProps({ usersReducer, authedUser }) {
+function mapStateToProps({ users, authedUser }) {
   return {
-    isLoggedIn: authedUser !== undefined ? true : false,
-    authedUser: authedUser
-      ? authedUser
-      : null,
-    users: usersReducer
+    isLoggedIn: authedUser !== '' ? true : false,
+    users
   }
 
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))
