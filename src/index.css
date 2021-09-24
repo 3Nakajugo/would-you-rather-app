@@ -32,7 +32,7 @@ h2 {
   color: #000000;
 }
 
-p {
+.card-header p {
   text-align: center;
 }
 
@@ -48,4 +48,23 @@ h5 {
 
 .btn-primary:active {
   outline: thin;
+}
+
+/*question css*/
+.question-card{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.btn-active{color:#09b1a8;
+   box-shadow: none;
+  }
+
+
+
+.avatar {
+  height: 61px;
+  margin-right: 20px;
 }

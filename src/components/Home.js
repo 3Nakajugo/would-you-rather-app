@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
-// import Question from './Question'
+import Question from './Question'
 import { connect } from 'react-redux'
 
 class Home extends Component {
   render() {
     const { answered, unanswered } = this.props
-    console.log(unanswered, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',)
-    console.log(answered, '++++++++++++++++++++++++++++++++++')
-
     return (
       <div>
-        heelo
-
-        {/* <Question key={id} id={id} /> */}
-
-
+        <div>
+        {unanswered.map(id => (
+              <Question key={id} id={id} />
+            ))}
+        </div>
+        <div>
+        {answered.map(id => (
+              <Question key={id} id={id} />
+            ))}
+        </div>
+        
       </div>
     )
   }
@@ -23,13 +26,15 @@ class Home extends Component {
 
 function mapStateToProps({ questions, authedUser }) {
 
+  let loggedInUser = authedUser["authedUser"]
+
   return {
     questions,
     answered: Object.keys(questions)
       .filter(id => {
         return (
-          questions[id].optionOne.votes.includes(authedUser) ||
-          authedUser[id].optionTwo.votes.includes(authedUser)
+          questions[id].optionOne.votes.includes(loggedInUser) ||
+          questions[id].optionTwo.votes.includes(loggedInUser)
         );
       })
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
@@ -37,8 +42,8 @@ function mapStateToProps({ questions, authedUser }) {
     unanswered: Object.keys(questions)
       .filter(id => {
         return (
-          !questions[id].optionOne.votes.includes(authedUser) &&
-          !questions[id].optionTwo.votes.includes(authedUser)
+          !questions[id].optionOne.votes.includes(loggedInUser) &&
+          !questions[id].optionTwo.votes.includes(loggedInUser)
         );
       })
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp)

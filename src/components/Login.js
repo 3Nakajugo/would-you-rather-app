@@ -21,8 +21,7 @@ export class Login extends Component {
       alert('failed to login ')
     } else {
       dispatch(getAuthedUser(this.state.user));
-      console.log(history.push, '???????????????????????????');
-      history.push("/home");
+      history.push("/");
     }
 
   }
@@ -38,14 +37,14 @@ export class Login extends Component {
         <div className=" login-content">
           <h5> Sign In</h5>
           <select value={this.state.user} onChange={this.handleChange} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-            <option value="select" disabled>Select a user...</option>
+            <option value="Select a user..." >Select a user...</option>
             {Object.keys(users).map((user) => (
               <option key={users[user].id} value={users[user].id}>
                 {users[user].name}
               </option>
             ))}
           </select>
-          <button onClick={this.handleSubmit} type="submit" className="btn" style={{ backgroundColor: "#09b1a8", color: "#ffffff", width: '100%', marginBottom: '15px', marginTop: '20px' }}>Sign In</button>
+          <button onClick={this.handleSubmit} type="submit" className="btn shadow-none" style={{ backgroundColor: "#09b1a8", color: "#ffffff", width: '100%', marginBottom: '15px', marginTop: '20px' }}>Sign In</button>
         </div>
       </div>
     )
