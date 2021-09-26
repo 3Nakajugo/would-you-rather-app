@@ -6,18 +6,23 @@ class Home extends Component {
   render() {
     const { answered, unanswered } = this.props
     return (
-      <div>
+
+      // <ul className="nav nav-pills nav-justified">
+      //   <li className="active"><a href="#">Unanswered questions</a></li>
+      //   <li><a href="#"> Answeed questions</a></li>
+      // </ul>
+      <div className="align-self-center">
         <div>
-        {unanswered.map(id => (
-              <Question key={id} id={id} />
-            ))}
+          {unanswered.map(id => (
+            <Question key={id} id={id} />
+          ))}
         </div>
         <div>
-        {answered.map(id => (
-              <Question key={id} id={id} />
-            ))}
+          {answered.map(id => (
+            <Question key={id} id={id} />
+          ))}
         </div>
-        
+
       </div>
     )
   }

@@ -51,20 +51,35 @@ h5 {
 }
 
 /*question css*/
-.question-card{
+.question-card {
   display: flex;
   flex-direction: column;
   margin-top: 2%;
   margin-bottom: 3%;
 }
 
-.btn-active{color:#09b1a8;
-   box-shadow: none;
-  }
-
-
+.btn-active {
+  color: #09b1a8;
+  box-shadow: none;
+}
 
 .avatar {
   height: 61px;
   margin-right: 20px;
+}
+
+/*Nav css*/
+.nav-avator {
+  height: 40px;
+}
+
+hr {
+  display: block;
+  border-color: #09b1a8;
+  margin: 1em 0;
+}
+
+.nav-link{
+  color: #09b1a8;
+  text-decoration: none;
 }

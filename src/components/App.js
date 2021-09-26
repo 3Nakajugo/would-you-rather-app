@@ -1,9 +1,10 @@
 import { handleGetInitialData } from '../actions/shared';
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from './Login';
 import Home from './Home';
+import Navigation from './Navigation';
 
 class App extends React.Component {
 
@@ -16,6 +17,7 @@ class App extends React.Component {
       <Router>
         <Fragment>
           <div className='container'>
+            <Navigation />
 
             {this.props.authedUser === ''
               ? (<Route render={() => <Login />} />)
