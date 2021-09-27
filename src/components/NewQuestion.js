@@ -11,20 +11,16 @@ class NewQuestion extends Component {
   };
 
   handleOptionOneChange = (e) => {
-    const optionOne = e.target.value
+    const optionOne = e.target.value;
 
-    this.setState(() => ({ optionOne })
-    )
-
-  }
+    this.setState(() => ({ optionOne }));
+  };
 
   handleOptionTwoChange = (e) => {
-    const optionTwo = e.target.value
+    const optionTwo = e.target.value;
 
-    this.setState(() => ({ optionTwo })
-    )
-
-  }
+    this.setState(() => ({ optionTwo }));
+  };
 
   handleSubmit = (event) => {
     const { dispatch } = this.props;
@@ -35,7 +31,7 @@ class NewQuestion extends Component {
     this.setState(() => ({
       optionOne: "",
       optionTwo: "",
-    }))
+    }));
     this.props.history.push("/");
   };
 
@@ -85,4 +81,4 @@ class NewQuestion extends Component {
   }
 }
 
-export default withRouter( connect()(NewQuestion))
+export default withRouter(connect()(NewQuestion));

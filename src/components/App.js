@@ -7,6 +7,7 @@ import Login from "./Login";
 import Home from "./Home";
 import Navigation from "./Navigation";
 import NewQuestion from "./NewQuestion";
+import LeaderBoard from "./LeaderBoard";
 
 class App extends React.Component {
   componentDidMount() {
@@ -17,16 +18,16 @@ class App extends React.Component {
     return (
       <Router>
         <Fragment>
-        <LoadingBar />
+          <LoadingBar />
           <div className="container">
             <Navigation />
             {this.props.authedUser === "" ? (
               <Route render={() => <Login />} />
             ) : (
               <Switch>
-
-                <Route exact path="/add" component={NewQuestion} />
                 <Route exact path="/" component={Home} />
+                <Route  path="/add" component={NewQuestion} />
+                <Route path="/leaderboard" component={LeaderBoard} />
               </Switch>
             )}
           </div>

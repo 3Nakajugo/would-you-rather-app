@@ -90,7 +90,6 @@ hr {
   border-color: #ebf1f7;
   border-style: solid;
   width: 60%;
-  /* display: flex; */
 }
 
 .nav-tabs .nav-link {
@@ -98,12 +97,16 @@ hr {
   color: #09b1a8;
 }
 
-.new-question{
+.new-question {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  
   width: 50%;
+}
+
+.vr {
+  border-left: 2px solid #a8a8a8;
+  height: 150px;
 }

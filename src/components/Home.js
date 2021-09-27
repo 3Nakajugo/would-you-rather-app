@@ -13,7 +13,6 @@ class Home extends Component {
           defaultActiveKey="unanswered"
           transition={false}
           id="uncontrolled-tab-example"
-          ClassName="tabs"
         >
           <Tab
             eventKey="unanswered"
