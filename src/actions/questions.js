@@ -1,9 +1,10 @@
 import { showLoading, hideLoading } from "react-redux-loading";
-import { _saveQuestion } from "../utils/_DATA";
-import { addQuestionToUser } from "./users";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
+import { addQuestionToUser, addAnswerToUser } from "./users";
 
 export const GET_ALL_QUESTIONS = "GET_ALL_QUESTIONS";
 export const CREATE_NEW_QUESTION = "CREATE_NEW_QUESTION";
+export const ANSWER_QUESTION = "ANSWER_QUESTION"
 
 export function getAllQuestions(questions) {
   return {
@@ -11,9 +12,11 @@ export function getAllQuestions(questions) {
     questions,
   };
 }
+
 export function createNewQuestion(question) {
   return { type: CREATE_NEW_QUESTION, question };
 }
+
 
 export function handleCreateNewQuestion(optionOne, optionTwo) {
   return (dispatch, getState) => {
@@ -25,9 +28,29 @@ export function handleCreateNewQuestion(optionOne, optionTwo) {
     };
     dispatch(showLoading());
     return _saveQuestion(question).then((question) => {
-      dispatch(createNewQuestion(question))
-      dispatch(addQuestionToUser(question))
-      dispatch(hideLoading())
+      dispatch(createNewQuestion(question));
+      dispatch(addQuestionToUser(question));
+      dispatch(hideLoading());
     });
   };
 }
+
+export function addAnswerToQuestion({ authedUser, qid, answer }) {
+  return {
+    type: ANSWER_QUESTION,
+    authedUser,
+    qid,
+    answer
+  };
+}
+
+export function handleAddAnswer(info) {
+  return (dispatch) => {
+    dispatch(showLoading());
+    return _saveQuestionAnswer(info).then(() => {
+      dispatch(addAnswerToQuestion(info));
+      dispatch(addAnswerToUser(info));
+      dispatch(hideLoading());
+    });
+  };
+};

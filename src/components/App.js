@@ -8,6 +8,7 @@ import Home from "./Home";
 import Navigation from "./Navigation";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
+import QuestionPoll from "./poll/QuestionPoll";
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,8 +27,9 @@ class App extends React.Component {
             ) : (
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route  path="/add" component={NewQuestion} />
+                <Route path="/add" component={NewQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
+                <Route path="/questions/:id" component={QuestionPoll} />
               </Switch>
             )}
           </div>
