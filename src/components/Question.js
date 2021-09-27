@@ -23,9 +23,9 @@ class Question extends Component {
       id
     } = this.props.question;
     return (
-      <div className="card Regular shadow question-card" style={{ maxWidth: '40%' }}>
-        <div className="card-header" style={{ fontWeight: 'bold' }}>
-          <h6>{author} asks: </h6>
+      <div className="card Regular shadow question-card" style={{ marginLeft: '10px', marginRight: '10px' }}>
+        <div className="card-header" style={{ fontWeight: 'bold'}}>
+          <h4 className="card-title" >{author} asks: </h4>
         </div>
         <div className="mb-2" >
           <div className="row g-0">
@@ -39,7 +39,7 @@ class Question extends Component {
               <div className="card-body">
                 <h6 className="card-title" style={{ fontWeight: 'bold' }}>Would you rather</h6>
                 <p className="card-text">...{OptionOneText}...</p>
-                <button type="submit" className="btn btn-outline-light" onClick={(e) => this.toPoll(e, id)} style={{ color: "#09b1a8", width: '100%', borderColor: '09b1a8', borderStyle: 'solid 1px' }}> View Poll</button>
+                <button type="submit" className="btn btn-outline-light" onClick={(e) => this.toPoll(e, id)} style={{ color: "#09b1a8", width: '100%', borderColor: '09b1a8', border: 'solid 1px' }}> View Poll</button>
               </div>
             </div>
           </div>

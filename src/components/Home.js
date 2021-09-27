@@ -18,8 +18,6 @@ class Home extends Component {
           <Tab
             eventKey="unanswered"
             title="Unanswered Questions"
-            align="center"
-            width="auto"
           >
             {unanswered.map((id) => (
               <Question id={id} key={id} />
@@ -28,7 +26,6 @@ class Home extends Component {
           <Tab
             eventKey="answered"
             title="Answered Questions"
-            align="center"
           >
             {answered.map((id) => (
               <Question id={id} key={id} />
