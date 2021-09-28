@@ -28,10 +28,10 @@ class App extends React.Component {
             ) : (
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/add" component={NewQuestion} />
-                <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/questions/:id" component={QuestionPoll} />
-                <Route component={Error}/>
+                <Route exact path="/add" component={NewQuestion} />
+                <Route exact path="/leaderboard" component={LeaderBoard} />
+                <Route exact path="/questions/:id" component={QuestionPoll} />
+                <Route component={Error} />
               </Switch>
             )}
           </div>

@@ -20,7 +20,7 @@ export class QuestionPoll extends Component {
   };
   render() {
     const { question, isVoted } = this.props;
-    if (!question) {
+    if (question === null) {
       return <Error/>;
     }
     return (

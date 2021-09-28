@@ -4,26 +4,31 @@ import { getAuthedUser } from "../actions/authedUser";
 import { withRouter } from "react-router-dom";
 
 export class Login extends Component {
-  state = { user: "" };
+  state = {
+    user: "",
+    location: this.props.location.pathname
+  };
 
   handleChange = (e) => {
     e.preventDefault();
     const value = e.target.value;
-    this.setState({ user: value });
+    this.setState({ user: value , location: this.props.location.pathname});
   };
 
   handleSubmit = (e) => {
-    const { dispatch, history } = this.props;
+    const { dispatch, history, location } = this.props;
+
     e.preventDefault();
     if (this.state.user === "") {
       alert("failed to login ");
     } else {
-      dispatch(getAuthedUser(this.state.user));
-      history.push("/");
+      dispatch(getAuthedUser(this.state.user))
+      ? history.push(location) : history.push("/");
     }
   };
   render() {
     const { users } = this.props;
+
     return (
       <div className="login-container card Regular shadow">
         <div className="card-header">
