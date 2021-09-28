@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Error() {
-  return <h2>This Question doesn't exist</h2>;
+function Error({location}) {
+  return <h2>This Question doesn't exist for {location.pathname}</h2>;
 
 }
 

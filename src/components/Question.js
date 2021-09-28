@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../utils/helper';
+// import { Redirect } from 'react-router-dom';
 import Error from './Error';
 import { withRouter } from "react-router-dom";
 
 class Question extends Component {
 
   toPoll = (e, id) => {
-    e.preventDefault()
+    e.preventDefault();
+    // <Redirect to={{location:`/questions/${id}`} } />
     this.props.history.push(`/questions/${id}`);
   };
 
@@ -57,7 +59,7 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
     question: question ? formatQuestion(question, users[question.author], loggedInUser) : null
   };
 }
-export default withRouter(connect(mapStateToProps)(Question))
+export default withRouter( connect(mapStateToProps)(Question))
 
 //formart of the question
 

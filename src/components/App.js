@@ -9,6 +9,7 @@ import Navigation from "./Navigation";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
 import QuestionPoll from "./poll/QuestionPoll";
+import Error from "./Error";
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends React.Component {
                 <Route path="/add" component={NewQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/questions/:id" component={QuestionPoll} />
+                <Route component={Error}/>
               </Switch>
             )}
           </div>
